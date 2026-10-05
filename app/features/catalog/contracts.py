@@ -1,0 +1,13 @@
+from typing import Protocol
+
+from app.domain.entities import Movie, SeatAvailability, Showtime
+
+
+class CatalogRepository(Protocol):
+    def list_active_movies(self) -> list[Movie]: ...
+
+    def list_showtimes(self, movie_id: int | None) -> list[Showtime]: ...
+
+    def get_showtime(self, showtime_id: int) -> Showtime | None: ...
+
+    def list_seat_availability(self, showtime_id: int) -> list[SeatAvailability]: ...
