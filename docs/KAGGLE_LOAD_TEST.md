@@ -6,6 +6,23 @@ Chạy API và Locust trên cùng Kaggle Notebook dùng CPU, ghi lại throughpu
 và error rate. Chỉ chạy sau khi ba feature đã hoàn thành; response `501` được tính
 là lỗi và không được đưa vào báo cáo cuối.
 
+## Phụ trách
+
+- Hải: chuẩn bị môi trường CPU và dữ liệu; kiểm chứng script/Locust; chạy ba mức
+  tải và tổng hợp HTML, CSV, metadata cùng báo cáo.
+- Chiến: xác nhận luồng Auth và test tích hợp đã pass trước khi chạy tải; dẫn
+  kết quả kiểm thử tải trong tài liệu bàn giao.
+- Đạt: xác nhận tính nhất quán và concurrency của Booking; xử lý lỗi Booking
+  được phát hiện trong kiểm thử tải.
+- Cả nhóm: đối chiếu kết quả với commit đã kiểm thử. Người sở hữu feature sửa
+  lỗi thuộc feature đó; Hải phân loại và chạy lại sau khi bản sửa đã tích hợp.
+
+Hải dùng PR `test/kaggle-load` riêng, không sửa công cụ tải trong
+`feature/catalog`. Lưu báo cáo tại `docs/load-results/<commit-sha>/`, ghi cấu
+hình ba mức và dẫn tới HTML/CSV/metadata của từng lần chạy. Có thể đính kèm các
+file kết quả lớn trong PR hoặc artifact, nhưng báo cáo phải có đường dẫn truy
+cập được khi bàn giao. Không commit database, token, mật khẩu hoặc secret.
+
 ## Cách chạy trong notebook
 
 ```bash
