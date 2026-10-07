@@ -51,9 +51,17 @@ Các chức năng Auth/Catalog/Booking vẫn là stub và trả 501. Đây chưa
 2. Hải triển khai CatalogService/CatalogRepository và tests/catalog.
 3. Đạt triển khai BookingService/BookingRepository và tests/booking, gồm T22/T23
    ownership của booking details và hai request cạnh tranh cùng ghế.
-4. Cả nhóm chạy test tích hợp toàn luồng, CI Docker và demo trên DB mới.
-5. Chạy ba mức tải thật trên Kaggle CPU và lưu báo cáo gắn commit SHA.
-6. Owner bật bảo vệ main và thêm hai collaborator bằng GitHub username chính xác.
+4. Chiến phụ trách test tích hợp toàn luồng và quyền sở hữu bằng hai tài khoản;
+   đối chiếu Swagger/API contract, hoàn thiện README và kịch bản demo. Hải phụ
+   trách kiểm chứng Docker, môi trường mới và dữ liệu demo.
+5. Hải phụ trách chạy ba mức tải thật trên Kaggle CPU và lưu báo cáo gắn commit
+   SHA. Chiến xác nhận tích hợp trước khi đo; Đạt xác nhận concurrency và xử lý
+   lỗi Booking. Mỗi người sửa lỗi thuộc feature mình sở hữu.
+6. Owner bật bảo vệ main, yêu cầu ít nhất 1 APPROVE từ người khác tác giả và CI pass trước khi merge; thay đổi sau review cần được review lại. Thêm hai collaborator bằng GitHub username chính xác.
+
+Phân công phần phụ cập nhật ngày 07/10/2026; không thay đổi kết quả kiểm chứng
+baseline ngày 05/10/2026 ở trên. Nhánh và phạm vi PR xem
+[FEATURE_PLAN.md](FEATURE_PLAN.md).
 
 ## Quy tắc tránh chồng file
 

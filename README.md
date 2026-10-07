@@ -124,14 +124,21 @@ docker compose exec api python -m scripts.seed
 
 ## Quy trình ba người
 
-1. Tạo GitHub public repo từ baseline này và bảo vệ nhánh `main`.
+1. Bảo vệ nhánh `main`: mọi PR cần ít nhất 1 APPROVE từ người khác tác giả và CI pass trước khi merge; không push trực tiếp. Thay đổi sau review cần được review lại.
 2. Tạo ba nhánh từ cùng commit baseline: `feature/auth`, `feature/catalog`,
    `feature/booking`.
 3. Mỗi người chỉ sửa thư mục feature và test mình sở hữu.
 4. Contract hoặc ORM model dùng chung chỉ đổi trong PR riêng, có ba người xác nhận.
 5. Merge theo thứ tự `auth` -> `catalog` -> `booking`; chạy full test sau mỗi PR.
 
-Chi tiết ownership, tên biến, API contract và checklist nằm trong thư mục `docs/`.
+Phần phụ được chia theo trách nhiệm: Hải kiểm chứng Foundation/Docker, chuẩn bị
+dữ liệu demo và chạy tải Kaggle CPU; Chiến phụ trách test tích hợp, đối chiếu
+Swagger/API contract và tài liệu bàn giao; Đạt phụ trách transaction và
+concurrency của Booking. Các phần phụ dùng PR riêng, giữ scope ba feature.
+
+Chi tiết ownership, đầu ra và nhánh phần phụ nằm trong
+[docs/FEATURE_PLAN.md](docs/FEATURE_PLAN.md). Tên biến, API contract và checklist
+nằm trong thư mục `docs/`.
 
 ## Commit đề xuất
 
